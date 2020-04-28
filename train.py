@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import keras.backend as K
 from keras.models import load_model
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler, CSVLogger, TerminateOnNaN
