@@ -22,8 +22,8 @@ from data_generator.object_detection_2d_misc_utils import apply_inverse_transfor
 
 
 def main(train_dir, valid_dir):
-    #train_dir = arguments.train_dir
-    #valid_dir = arguments.valid_dir
+    # train_dir = arguments.train_dir
+    # valid_dir = arguments.valid_dir
 
     train_dataset_dir = train_dir + '/train/'
     train_annot_dir = train_dir + '/train_annot/'
@@ -516,9 +516,9 @@ class SSDLoss:
         return total_loss
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     #parser = argparse.ArgumentParser()
     #parser.add_argument('train_dir', help='Base directory for training data and annotations.')
     #parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
     #args = parser.parse_args()
-    main()
+#    main('1', '2')
