@@ -518,7 +518,7 @@ class SSDLoss:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('train_dir', help='Base directory for training data and annotations.')
-    parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
+    parser.add_argument('--train_dir', help='Base directory for training data and annotations.')
+    parser.add_argument('--test_dir', help='Base directory for testing/validation data and annotations.')
     args = parser.parse_args()
     main(args)
