@@ -23,15 +23,18 @@ from data_generator.data_augmentation_chain_original_ssd import SSDDataAugmentat
 from data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
 
-def main(train_dir, valid_dir):
+def main(train_dir, valid_dir, set_dir):
     # train_dir = arguments.train_dir
     # valid_dir = arguments.valid_dir
 
     train_dataset_dir = train_dir + '/train/'
     train_annot_dir = train_dir + '/train_annot/'
+    train_set = set_dir + 'img_set.txt'
 
     valid_dataset_dir = valid_dir + '/valid/'
     valid_annot_dir = valid_dir + '/valid_annot/'
+    valid_set = set_dir + 'valid_set.txt'
+
     # Set Training and Validation dataset paths
     batch_size = 32
     model_path = 'COCO_512.h5'
@@ -97,7 +100,7 @@ def main(train_dir, valid_dir):
     valid_dataset = DataGenerator(
         load_images_into_memory=False, hdf5_dataset_path=None)
     train_dataset.parse_xml(images_dirs=[train_dataset_dir],
-                            image_set_filenames=['/Users/justinbutler/Desktop/test/img_set.txt'],
+                            image_set_filenames=[train_set],
                             annotations_dirs=[train_annot_dir],
                             classes=classes,
                             include_classes='all',
@@ -106,7 +109,7 @@ def main(train_dir, valid_dir):
                             ret=False)
 
     valid_dataset.parse_xml(images_dirs=[valid_dataset_dir],
-                            image_set_filenames=['/Users/justinbutler/Desktop/test/valid_set.txt'],
+                            image_set_filenames=[valid_set],
                             annotations_dirs=[valid_annot_dir],
                             classes=classes,
                             include_classes='all',
@@ -518,9 +521,9 @@ class SSDLoss:
         return total_loss
 
 
-#if __name__ == "__main__":
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument('train_dir', help='Base directory for training data and annotations.')
-    #parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
-    #args = parser.parse_args()
-#    main('1', '2')
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('train_dir', help='Base directory for training data and annotations.')
+    parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
+    args = parser.parse_args()
+    main(args)
