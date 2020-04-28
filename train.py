@@ -6,6 +6,7 @@ import numpy as np
 import tensorflow as tf
 from matplotlib import pyplot as plt
 import math
+import argparse
 
 from ssd import AnchorBoxes, L2Normalization, ssd_512
 
@@ -20,19 +21,21 @@ from data_generator.data_augmentation_chain_original_ssd import SSDDataAugmentat
 from data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
 
-def main():
-    train_dataset_dir = '/Users/justinbutler/Desktop/test/train/'
+def main(arguments):
+    train_dir = arguments.train_dir
+    valid_dir = arguments.valid_dir
 
+    train_dataset_dir = train_dir + '/train/'
+    train_annot_dir = train_dir + '/train_annot/'
+
+    valid_dataset_dir = valid_dir + '/valid/'
+    valid_annot_dir = valid_dir + '/valid_annot/'
     # Set Training and Validation dataset paths
-    train_annot_dir = '/Users/justinbutler/Desktop/test/train_annot/'
-    valid_dataset_dir = '/Users/justinbutler/Desktop/test/valid/'
-    valid_annot_dir = '/Users/justinbutler/Desktop/test/valid_annot/'
     batch_size = 32
     model_path = 'COCO_512.h5'
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
     classes = ['background',
-
                'car', 'bus', 'truck',
                'motorbike']
     # Set required parameters for training of SSD
@@ -514,4 +517,8 @@ class SSDLoss:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('train_dir', help='Base directory for training data and annotations.')
+    parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
+    args = parser.parse_args()
+    main(args)
