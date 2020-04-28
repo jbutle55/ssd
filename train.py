@@ -22,8 +22,8 @@ from data_generator.object_detection_2d_misc_utils import apply_inverse_transfor
 
 
 def main(train_dir, valid_dir):
-    train_dir = arguments.train_dir
-    valid_dir = arguments.valid_dir
+    #train_dir = arguments.train_dir
+    #valid_dir = arguments.valid_dir
 
     train_dataset_dir = train_dir + '/train/'
     train_annot_dir = train_dir + '/train_annot/'
