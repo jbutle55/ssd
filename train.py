@@ -23,7 +23,7 @@ from data_generator.data_augmentation_chain_original_ssd import SSDDataAugmentat
 from data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
 
-def main(train_dir, valid_dir, set_dir):
+def run(train_dir, valid_dir, set_dir):
     # train_dir = arguments.train_dir
     # valid_dir = arguments.valid_dir
 
@@ -521,9 +521,9 @@ class SSDLoss:
         return total_loss
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('train_dir', help='Base directory for training data and annotations.')
-    parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
-    args = parser.parse_args()
-    main(args)
+#if __name__ == "__main__":
+#    parser = argparse.ArgumentParser()
+#    parser.add_argument('train_dir', help='Base directory for training data and annotations.')
+#    parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
+#    args = parser.parse_args()
+#    main(args)
