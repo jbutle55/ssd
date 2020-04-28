@@ -1,0 +1,11 @@
+Keras
+Keras-Applications
+Keras-Preprocessing
+numpy
+opencv-contrib-python
+scipy
+tensorboard
+tensorflow
+tensorflow-estimator
+argparse
+
