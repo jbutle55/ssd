@@ -197,18 +197,21 @@ def run(train_dir, valid_dir, set_dir):
                                        mode='auto',
                                        period=1)
 
-    csv_logger = CSVLogger(filename='ssd512_training_log.csv',
-                           separator=',',
-                           append=True)
+    #csv_logger = CSVLogger(filename='ssd512_training_log.csv',
+    #                       separator=',',
+    #                       append=True)
 
     learning_rate_scheduler = LearningRateScheduler(schedule=lr_schedule,
                                                     verbose=1)
 
     terminate_on_nan = TerminateOnNaN()
 
-    callbacks = [model_checkpoint,
-                 csv_logger,
-                 learning_rate_scheduler,
+    #callbacks = [model_checkpoint,
+    #             csv_logger,
+    #             learning_rate_scheduler,
+    #             terminate_on_nan]
+
+    callbacks = [learning_rate_scheduler,
                  terminate_on_nan]
 
     initial_epoch = 0
