@@ -523,10 +523,10 @@ class SSDLoss:
         return total_loss
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     #parser = argparse.ArgumentParser()
     #parser.add_argument('train_dir', help='Base directory for training data and annotations.')
     #parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
     #args = parser.parse_args()
     #main(args)
-    run('/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial/')
+    #run('/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial/')
