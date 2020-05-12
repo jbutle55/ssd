@@ -42,7 +42,8 @@ def run(train_dir, valid_dir, set_dir):
     # Needs to know classes and order to map to integers
     classes = ['background',
                'car', 'bus', 'truck',
-               'motorbike']
+               'motorbike', 'person',
+               'train', 'traffic light', 'building']
     # Set required parameters for training of SSD
     img_height = 512
 
