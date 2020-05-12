@@ -69,7 +69,6 @@ def run(train_dir, valid_dir, set_dir):
 
     model = ssd_512(image_size=(img_height, img_width, img_channels),
                     n_classes=n_classes,
-
                     mode='training',
                     l2_regularization=0.0005,
                     scales=scales,
@@ -214,8 +213,8 @@ def run(train_dir, valid_dir, set_dir):
                  terminate_on_nan]
 
     initial_epoch = 0
-    final_epoch = 2  # 120
-    steps_per_epoch = 2  # 1000
+    final_epoch = 30  # 120
+    steps_per_epoch = 119 # Len(train)
 
     # Training
     history = model.fit_generator(generator=train_generator,
