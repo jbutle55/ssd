@@ -40,7 +40,7 @@ def run(train_dir, valid_dir, set_dir):
     model_path = 'COCO_512.h5'
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
-    classes = ['background','car', 'bus', 'truck','motorbike',
+    classes = ['background','car', 'bus', 'truck', 'motorbike',
                'train', 'traffic light', 'building', 'person']
     # Set required parameters for training of SSD
     img_height = 512
