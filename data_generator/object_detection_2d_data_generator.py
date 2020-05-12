@@ -487,6 +487,8 @@ class DataGenerator:
                     eval_neutr = [] # We'll store whether a box is annotated as "difficult" here.
                     objects = soup.find_all('object') # Get a list of all objects in this image.
 
+                    print(self.classes)
+
                     # Parse the data for each object.
                     for obj in objects:
                         class_name = obj.find('name', recursive=False).text
