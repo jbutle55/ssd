@@ -522,7 +522,7 @@ class SSDLoss:
 
         return total_loss
 
-
+# uncomment if running in terminal
 #if __name__ == "__main__":
     #parser = argparse.ArgumentParser()
     #parser.add_argument('train_dir', help='Base directory for training data and annotations.')
