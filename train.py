@@ -40,10 +40,8 @@ def run(train_dir, valid_dir, set_dir):
     model_path = 'COCO_512.h5'
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
-    classes = ['background',
-               'car', 'bus', 'truck',
-               'motorbike', 'person',
-               'train', 'traffic light', 'building']
+    classes = ['background','car', 'bus', 'truck','motorbike',
+               'train', 'traffic light', 'building', 'person']
     # Set required parameters for training of SSD
     img_height = 512
 
@@ -525,9 +523,10 @@ class SSDLoss:
         return total_loss
 
 
-#if __name__ == "__main__":
-#    parser = argparse.ArgumentParser()
-#    parser.add_argument('train_dir', help='Base directory for training data and annotations.')
-#    parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
-#    args = parser.parse_args()
-#    main(args)
+if __name__ == "__main__":
+    #parser = argparse.ArgumentParser()
+    #parser.add_argument('train_dir', help='Base directory for training data and annotations.')
+    #parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
+    #args = parser.parse_args()
+    #main(args)
+    run('/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial/')

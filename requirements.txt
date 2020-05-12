@@ -8,4 +8,11 @@ tensorboard
 tensorflow
 tensorflow-estimator
 argparse
+matplotlib
+sklearn
+pillow
+tqdm
+bs4
+lmxl
+
 
