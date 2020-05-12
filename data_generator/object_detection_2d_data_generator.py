@@ -460,8 +460,6 @@ class DataGenerator:
             self.eval_neutral = None
             annotations_dirs = [None] * len(images_dirs)
 
-        print(self.classes)
-
         for images_dir, image_set_filename, annotations_dir in zip(images_dirs, image_set_filenames, annotations_dirs):
             # Read the image set file that so that we know all the IDs of all the images to be included in the dataset.
             with open(image_set_filename) as f:
@@ -488,8 +486,6 @@ class DataGenerator:
                     boxes = [] # We'll store all boxes for this image here.
                     eval_neutr = [] # We'll store whether a box is annotated as "difficult" here.
                     objects = soup.find_all('object') # Get a list of all objects in this image.
-
-                    print(self.classes)
 
                     # Parse the data for each object.
                     for obj in objects:
