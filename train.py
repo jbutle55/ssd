@@ -530,3 +530,5 @@ class SSDLoss:
     #args = parser.parse_args()
     #main(args)
     #run('/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial/')
+    
+    
