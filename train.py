@@ -226,6 +226,9 @@ def run(train_dir, valid_dir, set_dir):
                                   validation_steps=math.ceil(valid_dataset_size/batch_size),
                                   initial_epoch=initial_epoch)
 
+    # Save final trained model
+    model.save('trained_model.h5')
+
     # Make predictions
     predict_generator = valid_dataset.generate(batch_size=1,
                                                shuffle=True,
