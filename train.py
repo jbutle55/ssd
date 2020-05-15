@@ -41,7 +41,7 @@ def run(train_dir, valid_dir, set_dir):
     model_path = 'COCO_512.h5'
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
-    classes = ['background','car', 'bus', 'truck', 'motorbike',
+    classes = ['background', 'car', 'bus', 'truck', 'motorbike',
                'train', 'traffic light', 'building', 'person']
     # Set required parameters for training of SSD
     img_height = 512
@@ -269,8 +269,7 @@ def run(train_dir, valid_dir, set_dir):
 
     # Set the colors for the bounding boxes
     colors = plt.cm.hsv(np.linspace(0, 1, n_classes+1)).tolist()
-    classes = ['background',
-               'car', 'bus', 'truck', 'motorbike']
+    # classes = ['background', 'car', 'bus', 'truck', 'motorbike'] # Already set at start
 
     plt.figure(figsize=(20, 12))
     plt.imshow(batch_original_images[i])
