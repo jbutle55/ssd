@@ -36,7 +36,7 @@ def run(train_dir, valid_dir, set_dir):
     valid_set = set_dir + 'valid_set.txt'
 
     # Set Training and Validation dataset paths
-    batch_size = 32
+    batch_size = 16
     model_path = 'COCO_512.h5'
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
