@@ -215,7 +215,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
                  terminate_on_nan]
 
     initial_epoch = 0
-    final_epoch = 30  # 120
+    final_epoch = 120  # 120
     steps_per_epoch = math.ceil(119/batch_size)  # ceil(num_samples/batch_size)
 
     # Training
