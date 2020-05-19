@@ -21,11 +21,12 @@ from data_generator.object_detection_2d_geometric_ops import Resize
 from data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
 
-def main():
+def run(model_dir, img_path):
     img_height = 512
     img_width = 512
 
-    model_path = 'path/to/trained/model.h5'
+    #model_path = 'path/to/trained/model.h5'
+    model_path = model_dir
 
     # We need to create an SSDLoss object in order to pass that to the model loader.
     ssd_loss = SSDLoss(neg_pos_ratio=3, n_neg_min=0, alpha=1.0)
@@ -41,7 +42,7 @@ def main():
     input_images = []  # Store resized versions of the images here.
 
     # We'll only load one image in this example.
-    img_path = 'examples/fish_bike.jpg'
+    img_path = img_path
 
     orig_images.append(imread(img_path))
     img = image.load_img(img_path, target_size=(img_height, img_width))
@@ -64,12 +65,8 @@ def main():
 
     # Set the colors for the bounding boxes
     colors = plt.cm.hsv(np.linspace(0, 1, 21)).tolist()
-    classes = ['background',
-               'aeroplane', 'bicycle', 'bird', 'boat',
-               'bottle', 'bus', 'car', 'cat',
-               'chair', 'cow', 'diningtable', 'dog',
-               'horse', 'motorbike', 'person', 'pottedplant',
-               'sheep', 'sofa', 'train', 'tvmonitor']
+    classes = ['background', 'car', 'bus', 'truck', 'motorbike',
+               'train', 'traffic light', 'building', 'person']
 
     plt.figure(figsize=(20,12))
     plt.imshow(orig_images[0])
@@ -92,5 +89,5 @@ def main():
     return
 
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()
