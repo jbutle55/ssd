@@ -23,7 +23,7 @@ from data_generator.data_augmentation_chain_original_ssd import SSDDataAugmentat
 from data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
 
-def run(train_dir, valid_dir, set_dir):
+def run(train_dir, valid_dir, set_dir, model_dir):
     # train_dir = arguments.train_dir
     # valid_dir = arguments.valid_dir
 
@@ -38,7 +38,8 @@ def run(train_dir, valid_dir, set_dir):
     # Set Training and Validation dataset paths
     batch_size = 16
     print('Using batch size of: {}'.format(batch_size))
-    model_path = 'COCO_512.h5'
+    #model_path = 'COCO_512.h5'
+    model_path = model_dir
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
     classes = ['background', 'car', 'bus', 'truck', 'motorbike',
