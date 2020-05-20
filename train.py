@@ -46,12 +46,11 @@ def run(train_dir, valid_dir, set_dir, model_dir):
                'train', 'traffic light', 'building', 'person']
     # Set required parameters for training of SSD
     img_height = 512
-
     img_width = 512
     img_channels = 3  # Colour image
     mean_color = [123, 117, 104]  # DO NOT CHANGE
     swap_channels = [2, 1, 0]  # Original SSD used BGR
-    n_classes = 80  # 80 for COCO
+    n_classes = 9  # 80 for COCO
     scales_coco = [0.04, 0.1, 0.26, 0.42, 0.58, 0.74, 0.9, 1.06]
     scales = scales_coco
     aspect_ratios = [[1.0, 2.0, 0.5],
@@ -215,7 +214,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
                  terminate_on_nan]
 
     initial_epoch = 0
-    final_epoch = 120  # 120
+    final_epoch = 150  # 120
     steps_per_epoch = math.ceil(119/batch_size)  # ceil(num_samples/batch_size)
 
     # Training
@@ -255,7 +254,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
 
     y_pred = model.predict(batch_images)
     y_pred_decoded = decode_detections(y_pred,
-                                       confidence_thresh=0.5,
+                                       confidence_thresh=0.2,
                                        iou_threshold=0.4,
                                        top_k=200,
                                        normalize_coords=normalize_coords,
@@ -309,12 +308,14 @@ def run(train_dir, valid_dir, set_dir, model_dir):
 
 
 def lr_schedule(epoch):
-    if epoch < 80:
-        return 0.001
+    if epoch < 40:
+        return 0.1
+    elif epoch < 80:
+        return 0.01
     elif epoch < 100:
-        return 0.0001
+        return 0.001
     else:
-        return 0.00001
+        return 0.0001
 
 
 class SSDLoss:
