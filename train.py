@@ -214,7 +214,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
                  terminate_on_nan]
 
     initial_epoch = 0
-    final_epoch = 150  # 120
+    final_epoch = 1  # 120
     steps_per_epoch = math.ceil(119/batch_size)  # ceil(num_samples/batch_size)
 
     # Training
@@ -230,6 +230,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
     model.save('trained_model.h5')
 
     # Make predictions
+    print('Here')
     predict_generator = valid_dataset.generate(batch_size=1,
                                                shuffle=True,
                                                transformations=[convert_to_3_channels,
@@ -309,7 +310,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
 
 def lr_schedule(epoch):
     if epoch < 40:
-        return 0.1
+        return 0.01
     elif epoch < 80:
         return 0.01
     elif epoch < 100:
@@ -533,6 +534,9 @@ class SSDLoss:
     #parser.add_argument('test_dir', help='Base directory for testing/validation data and annotations.')
     #args = parser.parse_args()
     #main(args)
-    #run('/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial', '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial/')
+#    run('/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial',
+#        '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial',
+#        '/Users/justinbutler/Desktop/school/Calgary/Thesis Work/Datasets/aerial-cars-dataset-master/aerial/',
+#        'COCO_512.h5')
     
     

@@ -88,6 +88,7 @@ def _greedy_nms(predictions, iou_threshold=0.45, coords='corners', border_pixels
         boxes_left = np.delete(boxes_left, maximum_index, axis=0) # Now remove the maximum box from `boxes_left`
         if boxes_left.shape[0] == 0: break # If there are no boxes left after this step, break. Otherwise...
         similarities = iou(boxes_left[:,1:], maximum_box[1:], coords=coords, mode='element-wise', border_pixels=border_pixels) # ...compare (IoU) the other left over boxes to the maximum box...
+        print('Similarities: {}'.format(similarities))
         boxes_left = boxes_left[similarities <= iou_threshold] # ...so that we can remove the ones that overlap too much with the maximum box
     return np.array(maxima)
 
