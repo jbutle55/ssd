@@ -50,7 +50,7 @@ def run(train_dir, valid_dir, set_dir, model_dir):
     img_channels = 3  # Colour image
     mean_color = [123, 117, 104]  # DO NOT CHANGE
     swap_channels = [2, 1, 0]  # Original SSD used BGR
-    n_classes = 9  # 80 for COCO
+    n_classes = 80  # 80 for COCO
     scales_coco = [0.04, 0.1, 0.26, 0.42, 0.58, 0.74, 0.9, 1.06]
     scales = scales_coco
     aspect_ratios = [[1.0, 2.0, 0.5],
