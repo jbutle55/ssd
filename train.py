@@ -310,11 +310,11 @@ def run(train_dir, valid_dir, set_dir, model_dir):
 
 def lr_schedule(epoch):
     if epoch < 40:
-        return 0.01
+        return 0.005
     elif epoch < 80:
-        return 0.01
+        return 0.005
     elif epoch < 100:
-        return 0.001
+        return 0.0001
     else:
         return 0.0001
 
