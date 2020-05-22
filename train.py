@@ -42,15 +42,16 @@ def run(train_dir, valid_dir, set_dir, model_dir):
     model_path = model_dir
     # model_path = 'saved_model.h5'
     # Needs to know classes and order to map to integers
-    classes = ['background', 'car', 'bus', 'truck', 'motorbike',
-               'train', 'traffic light', 'building', 'person']
+    classes = ['background', 'person', 'car', 'motorbike', 'bus', 'train',
+               'truck', 'traffic light', 'building']
     # Set required parameters for training of SSD
-    img_height = 512
-    img_width = 512
+    img_height = 1080
+    img_width = 1920
+    # Usually 512x512
     img_channels = 3  # Colour image
     mean_color = [123, 117, 104]  # DO NOT CHANGE
     swap_channels = [2, 1, 0]  # Original SSD used BGR
-    n_classes = 80  # 80 for COCO
+    n_classes = 8 # 80 for COCO
     scales_coco = [0.04, 0.1, 0.26, 0.42, 0.58, 0.74, 0.9, 1.06]
     scales = scales_coco
     aspect_ratios = [[1.0, 2.0, 0.5],
