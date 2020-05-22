@@ -379,5 +379,9 @@ def iou(boxes1, boxes2, coords='centroids', mode='outer_product', border_pixels=
         boxes2_areas = (boxes2[:,xmax] - boxes2[:,xmin] + d) * (boxes2[:,ymax] - boxes2[:,ymin] + d)
 
     union_areas = boxes1_areas + boxes2_areas - intersection_areas
+    
+    print('Intersection: ', intersection_areas)
+    print('Union: ', union_areas)
+    
 
     return intersection_areas / union_areas

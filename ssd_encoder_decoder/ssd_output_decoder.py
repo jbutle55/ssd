@@ -202,12 +202,15 @@ def decode_detections(y_pred,
 
     n_classes = y_pred_decoded_raw.shape[-1] - 4 # The number of classes is the length of the last axis minus the four box coordinates
 
+    print('Number of classes: ', n_classes)
+
     y_pred_decoded = [] # Store the final predictions in this list
+    print('Final pred decoded: ', y_pred_decoded)
     for batch_item in y_pred_decoded_raw: # `batch_item` has shape `[n_boxes, n_classes + 4 coords]`
         pred = [] # Store the final predictions for this batch item here
         for class_id in range(1, n_classes): # For each class except the background class (which has class ID 0)...
             single_class = batch_item[:,[class_id, -4, -3, -2, -1]] # ...keep only the confidences for that class, making this an array of shape `[n_boxes, 5]` and...
-            print('Single Class: {}'.format(single_class[:,0]))
+            print('Single Class - {}: {}'.format(class_id, single_class[:,0]))
             threshold_met = single_class[single_class[:,0] > confidence_thresh] # ...keep only those boxes with a confidence above the set threshold.
             if threshold_met.shape[0] > 0: # If any boxes made the threshold...
                 maxima = _greedy_nms(threshold_met, iou_threshold=iou_threshold, coords='corners', border_pixels=border_pixels) # ...perform NMS on them.
