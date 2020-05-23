@@ -45,9 +45,8 @@ def run(train_dir, valid_dir, set_dir, model_dir):
     classes = ['background', 'person', 'car', 'motorbike', 'bus', 'train',
                'truck', 'traffic light', 'building']
     # Set required parameters for training of SSD
-    img_height = 1080
-    img_width = 1920
-    # Usually 512x512
+    img_height = 512
+    img_width = 512
     img_channels = 3  # Colour image
     mean_color = [123, 117, 104]  # DO NOT CHANGE
     swap_channels = [2, 1, 0]  # Original SSD used BGR
